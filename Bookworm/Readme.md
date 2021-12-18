@@ -1,6 +1,8 @@
-#Projetc 11 of the 100DaysOfSwiftUI:
+# Projetc 11 of the 100DaysOfSwiftUI (day 53...56):
 
-in this project we have learned about:
+> Bad programmers worry about the code; good programmers worry about data structures and their relationships.
+
+**in this project we have learned about:**
 
 - Creating a custom component with @Binding.
 - Accepting multi-line text input with TextEditor.
