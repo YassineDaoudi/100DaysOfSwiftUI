@@ -17,8 +17,15 @@ struct AddBookView: View {
     @State private var rating = 3
     @State private var genre = ""
     @State private var review = ""
+   
+    let genres = ["Fantasy 🧚‍♀️", "Horror 🧛‍♂️", "Kids 🧒", "Mystery 🕵️‍♂️", "Poetry 🧑‍🎨", "Romance ❤️‍🔥", "Thriller 🥷"]
     
-    let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
+    var formDisabled: Bool {
+        if title.isEmpty || author.isEmpty || genre.isEmpty {
+            return false
+        }
+        return true
+    }
     
     var body: some View {
         NavigationView {
@@ -47,18 +54,21 @@ struct AddBookView: View {
                         newBook.id = UUID()
                         newBook.title = title
                         newBook.author = author
-                        newBook.genre = genre
                         newBook.rating = Int16(rating)
+                        newBook.genre = genre
                         newBook.review = review
+                        newBook.date = Date.now
                         
                         try? moc.save()
                         dismiss()
                     }
                 }
+                .disabled(formDisabled == false)
             }
             .navigationTitle("Add Book")
         }
     }
+   
 }
 
 struct AddBook_Previews: PreviewProvider {
