@@ -22,32 +22,33 @@ struct DetailView: View {
                 ZStack {
                     Rectangle()
                         .foregroundColor(.white)
-                        .frame(width: 400, height: 300)
+                        .frame(width: 390, height: 200)
                         .cornerRadius(25)
                         .shadow(color: .black.opacity(0.25), radius: 40, x: 0, y: 20)
                         .shadow(color: .black.opacity(0.05), radius: 3, x: 0, y: 1)
-                        .padding(.horizontal, 10)
-                        .offset(x: 0, y: -100)
+//                        .padding(.horizontal, 10)
+                        .offset(x: 0, y: -145)
                     
-                    HStack(spacing: 20) {
+                    HStack(spacing: 30) {
                         Text(book.author ?? "Unknown author")
                             .font(.title)
                             .foregroundColor(.secondary)
                         
                         RatingView(rating: .constant(Int(book.rating)))
-                            .font(.title3)
+                            .font(.subheadline)
                     }
-                    .offset(x: 0, y: -200)
+                    .offset(x: 0, y: -190)
                     
                     Text(book.review ?? "No review")
                         .padding()
-                        .frame(width: 400, height: 500, alignment: .center)
+                        .frame(width: 400, height: 500, alignment: .leading)
                         .offset(x: 10, y: -130)
                     
                     if let date = book.date?.dateFormat() {
                         Text("\(date)")
-                            .padding()
-                            .offset(x: 90, y: 20)
+                            .font(.callout)
+                            .foregroundColor(.secondary)
+                            .offset(x: 90, y: -60)
                     }
                 }
                 .offset(x: 0, y: 210)
@@ -55,9 +56,9 @@ struct DetailView: View {
                 ZStack {
                     Image(book.genre ?? "Fantasy")
                         .resizable()
-                        .scaledToFit()
+                        .frame(width: 420, height: 250, alignment: .center)
                         .cornerRadius(25)
-                        .shadow(color: .black.opacity(0.25), radius: 40, x: 0, y: -20)
+                        .shadow(color: .black.opacity(0.25), radius: 40, x: 0, y: -10)
                         .shadow(color: .black.opacity(0.05), radius: 3, x: 0, y: -1)
                         .padding(.top, 50)
                         .padding(.horizontal, 5)

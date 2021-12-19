@@ -18,7 +18,7 @@ struct AddBookView: View {
     @State private var genre = ""
     @State private var review = ""
    
-    let genres = ["Fantasy 🧚‍♀️", "Horror 🧛‍♂️", "Kids 🧒", "Mystery 🕵️‍♂️", "Poetry 🧑‍🎨", "Romance ❤️‍🔥", "Thriller 🥷"]
+    let genres = ["Fantasy 🧚‍♀️", "Horror 🧛‍♂️", "Kids 🧒", "Mystery 🕵️‍♂️", "Poetry 🧑‍🎨", "Romance ❤️‍🔥", "Thriller 🥷", "Psychology 🧠", "Political science 🏛", "Self-help 🧘‍♂️"]
     
     var formDisabled: Bool {
         if title.isEmpty || author.isEmpty || genre.isEmpty {
@@ -66,6 +66,16 @@ struct AddBookView: View {
                 .disabled(formDisabled == false)
             }
             .navigationTitle("Add Book")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button{
+                        dismiss()
+                    } label: {
+                        Label("", systemImage: "xmark.square")
+                            .foregroundColor(.red)
+                    }
+                }
+            }
         }
     }
    
